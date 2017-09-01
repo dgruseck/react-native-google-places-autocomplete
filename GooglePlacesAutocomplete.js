@@ -688,6 +688,7 @@ export default class GooglePlacesAutocomplete extends Component {
     }
 
     if ((this.state.text !== '' || this.props.predefinedPlaces.length || this.props.currentLocation === true) && this.state.listViewDisplayed === true) {
+      const { styles, ...props } = this.props;
       return (
         <FlatList
           style={[defaultStyles.listView, this.props.styles.listView]}
@@ -697,7 +698,7 @@ export default class GooglePlacesAutocomplete extends Component {
           ItemSeparatorComponent={this._renderSeparator}
           renderItem={({ item }) => this._renderRow(item)}
           ListFooterComponent={this._renderPoweredLogo}
-          {...this.props}
+          {...props}
         />
       );
     }
